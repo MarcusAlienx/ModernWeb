@@ -1,0 +1,19 @@
+# Redirects for Netlify SPA routing
+/*    /index.html   200
+
+# Optional: Redirect www to non-www
+https://www.albertorodriguez-couture.netlify.app/* https://albertorodriguez-couture.netlify.app/:splat 301!
+
+# Security headers
+/*
+  X-Frame-Options: DENY
+  X-XSS-Protection: 1; mode=block
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
+# Cache static assets
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# API routes (if using Netlify Functions)
+/api/*  /.netlify/functions/:splat  200

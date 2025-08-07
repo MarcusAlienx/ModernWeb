@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Lightbulb, Clock, Award, Phone } from 'lucide-react';
-import HeroSection from '@/components/UI/HeroSection';
+import VideoHero from '@/components/UI/VideoHero';
 import CollectionCard from '@/components/UI/CollectionCard';
 import ServiceCard from '@/components/UI/ServiceCard';
 
@@ -69,13 +69,17 @@ const Home = () => {
 
   return (
     <div className="pt-20">
-      {/* Hero Section */}
-      <HeroSection
+      {/* Video Hero Section */}
+      <VideoHero
         title="ALTA COSTURA"
+        subtitle="ALBERTO RODRÍGUEZ COUTURE"
         description="Más de 35 años creando momentos únicos a través del diseño de alta costura y vestidos de novia excepcionales"
-        backgroundImage="https://images.unsplash.com/photo-1594736797933-d0c02e8ec2d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080"
+        videoSrc="https://player.vimeo.com/external/434045526.sd.mp4?s=c27eecc69fabf212b686ebe8c87b2c96e2d37b2e&profile_id=164&oauth2_token_id=57447761"
+        posterImage="https://images.unsplash.com/photo-1594736797933-d0c02e8ec2d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080"
         buttonText="DESCUBRIR COLECCIONES"
         buttonLink="#colecciones"
+        autoPlay={true}
+        muted={true}
       />
 
       {/* Collections Section */}

@@ -43,31 +43,31 @@ const Footer = () => {
             <h4 className="font-medium text-lg mb-4 tracking-luxury">COLECCIONES</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/couture">
-                  <a className="text-gray-600 hover:text-luxury-gold transition-colors duration-300">
+                <Link href="/colecciones">
+                  <span className="text-gray-600 hover:text-luxury-gold transition-colors duration-300 cursor-pointer">
                     Couture
-                  </a>
+                  </span>
                 </Link>
               </li>
               <li>
-                <Link href="/novias">
-                  <a className="text-gray-600 hover:text-luxury-gold transition-colors duration-300">
+                <Link href="/colecciones">
+                  <span className="text-gray-600 hover:text-luxury-gold transition-colors duration-300 cursor-pointer">
                     Novias
-                  </a>
+                  </span>
                 </Link>
               </li>
               <li>
-                <Link href="/ready-to-wear">
-                  <a className="text-gray-600 hover:text-luxury-gold transition-colors duration-300">
+                <Link href="/colecciones">
+                  <span className="text-gray-600 hover:text-luxury-gold transition-colors duration-300 cursor-pointer">
                     Ready-to-Wear
-                  </a>
+                  </span>
                 </Link>
               </li>
               <li>
-                <Link href="/accesorios">
-                  <a className="text-gray-600 hover:text-luxury-gold transition-colors duration-300">
+                <Link href="/colecciones">
+                  <span className="text-gray-600 hover:text-luxury-gold transition-colors duration-300 cursor-pointer">
                     Accesorios
-                  </a>
+                  </span>
                 </Link>
               </li>
             </ul>
@@ -77,31 +77,31 @@ const Footer = () => {
             <h4 className="font-medium text-lg mb-4 tracking-luxury">EMPRESA</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/historia">
-                  <a className="text-gray-600 hover:text-luxury-gold transition-colors duration-300">
+                <Link href="/acerca">
+                  <span className="text-gray-600 hover:text-luxury-gold transition-colors duration-300 cursor-pointer">
                     Historia
-                  </a>
+                  </span>
                 </Link>
               </li>
               <li>
-                <Link href="/filosofia">
-                  <a className="text-gray-600 hover:text-luxury-gold transition-colors duration-300">
+                <Link href="/acerca">
+                  <span className="text-gray-600 hover:text-luxury-gold transition-colors duration-300 cursor-pointer">
                     Filosofía
-                  </a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/noticias">
-                  <a className="text-gray-600 hover:text-luxury-gold transition-colors duration-300">
-                    Noticias
-                  </a>
+                  </span>
                 </Link>
               </li>
               <li>
                 <Link href="/contacto">
-                  <a className="text-gray-600 hover:text-luxury-gold transition-colors duration-300">
+                  <span className="text-gray-600 hover:text-luxury-gold transition-colors duration-300 cursor-pointer">
+                    Noticias
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/contacto">
+                  <span className="text-gray-600 hover:text-luxury-gold transition-colors duration-300 cursor-pointer">
                     Contacto
-                  </a>
+                  </span>
                 </Link>
               </li>
             </ul>
@@ -113,15 +113,15 @@ const Footer = () => {
             © 2025 Alberto Rodríguez Couture. Todos los derechos reservados.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link href="/privacidad">
-              <a className="text-gray-600 hover:text-luxury-gold text-sm transition-colors duration-300">
+            <Link href="/contacto">
+              <span className="text-gray-600 hover:text-luxury-gold text-sm transition-colors duration-300 cursor-pointer">
                 Privacidad
-              </a>
+              </span>
             </Link>
-            <Link href="/terminos">
-              <a className="text-gray-600 hover:text-luxury-gold text-sm transition-colors duration-300">
+            <Link href="/contacto">
+              <span className="text-gray-600 hover:text-luxury-gold text-sm transition-colors duration-300 cursor-pointer">
                 Términos
-              </a>
+              </span>
             </Link>
           </div>
         </div>

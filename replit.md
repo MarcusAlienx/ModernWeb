@@ -1,12 +1,21 @@
-# Alberto Rodríguez - Alta Costura Website
+# Alberto Rodríguez Couture - Website
 
 ## Overview
 
-This is a high-end luxury fashion website for Alberto Rodríguez, a prestigious haute couture house founded in 1986 and based in Guadalajara, Mexico. The application showcases collections, provides company information, and handles customer inquiries for custom wedding dresses and formal wear. The design is inspired by luxury fashion brands like Elie Saab, emphasizing minimalist elegance and visual storytelling.
+This is a sophisticated, high-end luxury fashion website for Alberto Rodríguez Couture, a prestigious haute couture house founded in 1986 and based in Guadalajara, Mexico. The application features premium visual elements, responsive hamburger navigation, and video hero sections that replicate the luxury aesthetics of Louis Vuitton and Zuhair Murad. The site showcases collections, provides company information, and handles customer inquiries for custom wedding dresses and formal wear.
 
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
+
+## Recent Updates (January 2025)
+
+- **Enhanced Hamburger Menu**: Implemented premium animated hamburger navigation with slide-out sidebar, contact information, and social links
+- **Video Hero Component**: Created immersive video hero section with custom controls and elegant overlays
+- **Visual Effects**: Added sophisticated animations, scroll effects, and micro-interactions throughout
+- **Netlify Configuration**: Complete setup for deployment including netlify.toml, _redirects, and manifest.json
+- **SEO Optimization**: Enhanced meta tags, structured data, and Open Graph implementation
+- **Documentation**: Comprehensive README.md with local development and Netlify CLI deployment instructions
 
 ## System Architecture
 
