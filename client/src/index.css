@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(0, 0%, 20%);
+  --card: hsl(0, 0%, 98%);
+  --card-foreground: hsl(0, 0%, 20%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(0, 0%, 20%);
+  --primary: hsl(45, 85%, 45%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(0, 0%, 15%);
+  --secondary-foreground: hsl(0, 0%, 100%);
+  --muted: hsl(0, 0%, 97%);
+  --muted-foreground: hsl(0, 0%, 45%);
+  --accent: hsl(45, 85%, 45%);
+  --accent-foreground: hsl(0, 0%, 100%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --border: hsl(0, 0%, 90%);
+  --input: hsl(0, 0%, 95%);
+  --ring: hsl(45, 85%, 45%);
+  --chart-1: hsl(45, 85%, 45%);
+  --chart-2: hsl(160, 60%, 45%);
+  --chart-3: hsl(30, 80%, 55%);
+  --chart-4: hsl(280, 65%, 60%);
+  --chart-5: hsl(340, 75%, 55%);
+  
+  /* Luxury Colors */
+  --luxury-gold: hsl(45, 85%, 45%);
+  --luxury-black: hsl(0, 0%, 0%);
+  --luxury-gray: hsl(0, 0%, 20%);
+  --luxury-light: hsl(0, 0%, 97%);
+  --luxury-white: hsl(0, 0%, 100%);
+  
+  /* Typography */
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Inter', sans-serif;
+  
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: hsl(0, 0%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --card: hsl(0, 0%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --popover: hsl(0, 0%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --primary: hsl(45, 85%, 45%);
+  --primary-foreground: hsl(0, 0%, 9%);
+  --secondary: hsl(0, 0%, 14.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --muted: hsl(0, 0%, 14.9%);
+  --muted-foreground: hsl(0, 0%, 63.9%);
+  --accent: hsl(45, 85%, 45%);
+  --accent-foreground: hsl(0, 0%, 9%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --border: hsl(0, 0%, 14.9%);
+  --input: hsl(0, 0%, 14.9%);
+  --ring: hsl(45, 85%, 45%);
+  --chart-1: hsl(220, 70%, 50%);
+  --chart-2: hsl(160, 60%, 45%);
+  --chart-3: hsl(30, 80%, 55%);
+  --chart-4: hsl(280, 65%, 60%);
+  --chart-5: hsl(340, 75%, 55%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .tracking-luxury {
+    letter-spacing: 0.05em;
+  }
+  
+  .text-luxury-gold {
+    color: var(--luxury-gold);
+  }
+  
+  .text-luxury-black {
+    color: var(--luxury-black);
+  }
+  
+  .text-luxury-gray {
+    color: var(--luxury-gray);
+  }
+  
+  .bg-luxury-gold {
+    background-color: var(--luxury-gold);
+  }
+  
+  .bg-luxury-black {
+    background-color: var(--luxury-black);
+  }
+  
+  .bg-luxury-gray {
+    background-color: var(--luxury-gray);
+  }
+  
+  .bg-luxury-light {
+    background-color: var(--luxury-light);
+  }
+  
+  .border-luxury-gold {
+    border-color: var(--luxury-gold);
+  }
+  
+  .border-luxury-gray {
+    border-color: var(--luxury-gray);
+  }
+}
