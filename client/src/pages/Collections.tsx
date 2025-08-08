@@ -1,9 +1,17 @@
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ChevronRight, Star, Calendar, User } from 'lucide-react';
 
 const Collections = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
+
+  useEffect(() => {
+    // Detectar fragmento de URL para navegar a categoría específica
+    const hash = window.location.hash.replace('#', '');
+    if (hash && ['novias', 'gala', 'coctel', 'rtw'].includes(hash)) {
+      setSelectedCategory(hash);
+    }
+  }, []);
 
   const categories = [
     { id: 'all', label: 'TODAS LAS COLECCIONES' },
@@ -174,6 +182,12 @@ const Collections = () => {
         </div>
       </section>
 
+      {/* Individual Collection Sections */}
+      <section id="novias" className="py-2"></section>
+      <section id="gala" className="py-2"></section>
+      <section id="coctel" className="py-2"></section>
+      <section id="rtw" className="py-2"></section>
+
       {/* Collections Grid */}
       <section className="py-16">
         <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -200,9 +214,6 @@ const Collections = () => {
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-xs text-luxury-gold font-medium tracking-wide uppercase">
                         {collection.season}
-                      </span>
-                      <span className="text-xs text-gray-500">
-                        {collection.pieces} piezas
                       </span>
                     </div>
                     

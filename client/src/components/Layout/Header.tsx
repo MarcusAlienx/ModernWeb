@@ -246,6 +246,43 @@ const Header = () => {
                   ))}
                 </div>
 
+                {/* Collection Categories */}
+                <motion.div
+                  className="mb-12"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5 }}
+                >
+                  <div className="text-sm text-luxury-gold mb-4 tracking-luxury uppercase">
+                    COLECCIONES
+                  </div>
+                  <div className="space-y-3">
+                    {[
+                      { href: '/collections#novias', label: 'NOVIAS' },
+                      { href: '/collections#gala', label: 'GALA' },
+                      { href: '/collections#coctel', label: 'CÓCTEL' },
+                      { href: '/collections#rtw', label: 'READY-TO-WEAR' }
+                    ].map((category, index) => (
+                      <motion.div
+                        key={category.href}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.6 + index * 0.1 }}
+                      >
+                        <a href={category.href}>
+                          <motion.div
+                            className="text-sm text-gray-600 hover:text-luxury-gold cursor-pointer py-1 transition-colors duration-300"
+                            onClick={closeMenu}
+                            whileHover={{ x: 5 }}
+                          >
+                            {category.label}
+                          </motion.div>
+                        </a>
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.div>
+
                 {/* Contact Info */}
                 <motion.div
                   className="space-y-4"
