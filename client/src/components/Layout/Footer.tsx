@@ -43,30 +43,30 @@ const Footer = () => {
             <h4 className="font-medium text-lg mb-4 tracking-luxury">COLECCIONES</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/colecciones">
-                  <span className="text-gray-600 hover:text-luxury-gold transition-colors duration-300 cursor-pointer">
-                    Couture
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/colecciones">
+                <Link href="/collections#novias">
                   <span className="text-gray-600 hover:text-luxury-gold transition-colors duration-300 cursor-pointer">
                     Novias
                   </span>
                 </Link>
               </li>
               <li>
-                <Link href="/colecciones">
+                <Link href="/collections#gala">
                   <span className="text-gray-600 hover:text-luxury-gold transition-colors duration-300 cursor-pointer">
-                    Ready-to-Wear
+                    Gala
                   </span>
                 </Link>
               </li>
               <li>
-                <Link href="/colecciones">
+                <Link href="/collections#coctel">
                   <span className="text-gray-600 hover:text-luxury-gold transition-colors duration-300 cursor-pointer">
-                    Accesorios
+                    Cóctel
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/collections#rtw">
+                  <span className="text-gray-600 hover:text-luxury-gold transition-colors duration-300 cursor-pointer">
+                    Ready-to-Wear
                   </span>
                 </Link>
               </li>
@@ -77,28 +77,28 @@ const Footer = () => {
             <h4 className="font-medium text-lg mb-4 tracking-luxury">EMPRESA</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/acerca">
+                <Link href="/about">
                   <span className="text-gray-600 hover:text-luxury-gold transition-colors duration-300 cursor-pointer">
                     Historia
                   </span>
                 </Link>
               </li>
               <li>
-                <Link href="/acerca">
+                <Link href="/about">
                   <span className="text-gray-600 hover:text-luxury-gold transition-colors duration-300 cursor-pointer">
                     Filosofía
                   </span>
                 </Link>
               </li>
               <li>
-                <Link href="/contacto">
+                <Link href="/about">
                   <span className="text-gray-600 hover:text-luxury-gold transition-colors duration-300 cursor-pointer">
                     Noticias
                   </span>
                 </Link>
               </li>
               <li>
-                <Link href="/contacto">
+                <Link href="/contact">
                   <span className="text-gray-600 hover:text-luxury-gold transition-colors duration-300 cursor-pointer">
                     Contacto
                   </span>
@@ -113,12 +113,12 @@ const Footer = () => {
             © 2025 Alberto Rodríguez Couture. Todos los derechos reservados.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link href="/contacto">
+            <Link href="/contact">
               <span className="text-gray-600 hover:text-luxury-gold text-sm transition-colors duration-300 cursor-pointer">
                 Privacidad
               </span>
             </Link>
-            <Link href="/contacto">
+            <Link href="/contact">
               <span className="text-gray-600 hover:text-luxury-gold text-sm transition-colors duration-300 cursor-pointer">
                 Términos
               </span>
