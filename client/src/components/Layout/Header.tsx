@@ -45,7 +45,7 @@ const Header = () => {
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
         <nav className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center justify-between h-20 relative">
             {/* Mobile Menu Button */}
             <motion.button
               className="lg:hidden relative z-50 p-2 hover:bg-gray-50/80 rounded-full transition-all duration-300"
@@ -118,7 +118,7 @@ const Header = () => {
 
             {/* Center Logo */}
             <motion.div 
-              className="absolute left-1/2 transform -translate-x-1/2 lg:relative lg:left-auto lg:transform-none lg:flex-1 lg:flex lg:justify-center"
+              className="flex-1 flex justify-center lg:flex-none lg:flex-1 lg:flex lg:justify-center"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2, duration: 0.8 }}
@@ -272,7 +272,13 @@ const Header = () => {
                         <a href={category.href}>
                           <motion.div
                             className="text-sm text-gray-600 hover:text-luxury-gold cursor-pointer py-1 transition-colors duration-300"
-                            onClick={closeMenu}
+                            onClick={(e) => {
+                              closeMenu();
+                              // Asegurar que la página se desplace al top
+                              setTimeout(() => {
+                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                              }, 100);
+                            }}
                             whileHover={{ x: 5 }}
                           >
                             {category.label}

@@ -26,6 +26,12 @@ const CollectionCard = ({ title, subtitle, image, href = '#', className = '' }: 
             className="w-full h-96 object-cover transition-transform duration-700"
             whileHover={{ scale: 1.05 }}
             loading="lazy"
+            onError={(e) => {
+              console.error('Image failed to load:', image);
+              // Fallback to a more reliable image if current one fails
+              const target = e.target as HTMLImageElement;
+              target.src = 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=1200';
+            }}
           />
           <motion.div
             className="absolute inset-0 bg-black/20"
