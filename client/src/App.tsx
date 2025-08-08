@@ -15,9 +15,9 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
-      <Route path="/colecciones" component={Collections} />
-      <Route path="/acerca" component={About} />
-      <Route path="/contacto" component={Contact} />
+      <Route path="/collections" component={Collections} />
+      <Route path="/about" component={About} />
+      <Route path="/contact" component={Contact} />
       <Route component={NotFound} />
     </Switch>
   );

@@ -19,9 +19,9 @@ const Header = () => {
 
   const navigationItems = [
     { href: '/', label: 'INICIO' },
-    { href: '/colecciones', label: 'COLECCIONES' },
-    { href: '/acerca', label: 'ACERCA DE' },
-    { href: '/contacto', label: 'CONTACTO' },
+    { href: '/collections', label: 'COLECCIONES' },
+    { href: '/about', label: 'ACERCA DE' },
+    { href: '/contact', label: 'CONTACTO' },
   ];
 
   const toggleMenu = () => {
@@ -118,7 +118,7 @@ const Header = () => {
 
             {/* Center Logo */}
             <motion.div 
-              className="flex-1 flex justify-center lg:flex-none"
+              className="absolute left-1/2 transform -translate-x-1/2 lg:relative lg:left-auto lg:transform-none lg:flex-1 lg:flex lg:justify-center"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2, duration: 0.8 }}

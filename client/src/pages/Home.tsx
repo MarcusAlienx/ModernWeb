@@ -195,7 +195,7 @@ const Home = () => {
 
               <div className="mt-10">
                 <a
-                  href="/historia"
+                  href="/about"
                   className="inline-block border border-luxury-gold text-luxury-gold px-8 py-3 text-sm font-medium tracking-luxury hover:bg-luxury-gold hover:text-black transition-all duration-300"
                 >
                   CONOCER MÁS
