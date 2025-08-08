@@ -272,12 +272,8 @@ const Header = () => {
                         <a href={category.href}>
                           <motion.div
                             className="text-sm text-gray-600 hover:text-luxury-gold cursor-pointer py-1 transition-colors duration-300"
-                            onClick={(e) => {
+                            onClick={() => {
                               closeMenu();
-                              // Asegurar que la página se desplace al top
-                              setTimeout(() => {
-                                window.scrollTo({ top: 0, behavior: 'smooth' });
-                              }, 100);
                             }}
                             whileHover={{ x: 5 }}
                           >
