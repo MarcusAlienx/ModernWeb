@@ -95,9 +95,9 @@ const Collections = () => {
     : collections.filter(collection => collection.category === selectedCategory);
 
   const stats = [
-    { icon: Star, label: 'Colecciones', value: '6' },
-    { icon: User, label: 'Diseños Únicos', value: '124+' },
-    { icon: Calendar, label: 'Años de Experiencia', value: '35+' },
+    { icon: Star, label: 'Colecciones', value: '' },
+    { icon: User, label: 'Diseños Únicos', value: '' },
+    { icon: Calendar, label: 'Años de Experiencia', value: '' },
   ];
 
   return (
@@ -151,8 +151,7 @@ const Collections = () => {
                 <div className="w-16 h-16 bg-luxury-gold rounded-full flex items-center justify-center mx-auto mb-4">
                   <stat.icon className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-3xl font-light text-luxury-black mb-2">{stat.value}</h3>
-                <p className="text-gray-600 tracking-luxury">{stat.label}</p>
+                <p className="text-xl font-medium text-luxury-black tracking-luxury">{stat.label}</p>
               </motion.div>
             ))}
           </div>
