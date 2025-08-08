@@ -1,155 +1,263 @@
 import { motion } from 'framer-motion';
-import HeroSection from '@/components/UI/HeroSection';
-import CollectionCard from '@/components/UI/CollectionCard';
+import { useState } from 'react';
+import { ChevronRight, Star, Calendar, User } from 'lucide-react';
 
 const Collections = () => {
+  const [selectedCategory, setSelectedCategory] = useState('all');
+
+  const categories = [
+    { id: 'all', label: 'TODAS LAS COLECCIONES' },
+    { id: 'novias', label: 'NOVIAS' },
+    { id: 'gala', label: 'GALA' },
+    { id: 'coctel', label: 'CÓCTEL' },
+    { id: 'rtw', label: 'READY-TO-WEAR' }
+  ];
+
   const collections = [
     {
-      title: 'ALTA COSTURA',
-      subtitle: 'COLECCIÓN PRIMAVERA 2025',
-      image: 'https://images.unsplash.com/photo-1594736797933-d0c02e8ec2d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=1000',
-      href: '/collections/alta-costura'
+      id: 1,
+      title: 'Novias Eternas',
+      description: 'Vestidos de novia únicos diseñados para el día más importante. Cada pieza es creada a medida con las mejores telas y técnicas de alta costura.',
+      image: 'https://images.unsplash.com/photo-1594736797933-d0c02e8ec2d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=1200',
+      link: '/novias',
+      category: 'novias',
+      season: 'Colección 2025',
+      pieces: 12,
+      price: 'Desde $85,000 MXN'
     },
     {
-      title: 'VESTIDOS DE NOVIA',
-      subtitle: 'COLECCIÓN ETERNA',
-      image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=1000',
-      href: '/collections/novias'
+      id: 2,
+      title: 'Gala Imperial',
+      description: 'Elegancia y sofisticación para eventos especiales. Diseños que capturan la esencia de la realeza con un toque moderno y mexicano.',
+      image: 'https://images.unsplash.com/photo-1566479179817-02b2e5b2c7c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=1200',
+      link: '/gala',
+      category: 'gala',
+      season: 'Colección 2025',
+      pieces: 18,
+      price: 'Desde $45,000 MXN'
     },
     {
-      title: 'VESTIDOS DE GALA',
-      subtitle: 'RED CARPET COLLECTION',
-      image: 'https://images.unsplash.com/photo-1566479179817-0b00b3c6f7c9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=1000',
-      href: '/collections/gala'
+      id: 3,
+      title: 'Cóctel Dorado',
+      description: 'Diseños sofisticados para ocasiones semi-formales. La perfecta combinación entre elegancia y versatilidad para la mujer moderna.',
+      image: 'https://images.unsplash.com/photo-1539008835657-9e8e9680c956?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=1200',
+      link: '/coctel',
+      category: 'coctel',
+      season: 'Colección 2025',
+      pieces: 24,
+      price: 'Desde $28,000 MXN'
     },
     {
-      title: 'READY-TO-WEAR',
-      subtitle: 'OCASIONES ESPECIALES',
-      image: 'https://images.unsplash.com/photo-1469334031218-e382a71b716b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=1000',
-      href: '/collections/ready-to-wear'
+      id: 4,
+      title: 'Ready-to-Wear Signature',
+      description: 'Piezas listas para usar con el sello de calidad AR. Elegancia cotidiana sin comprometer el estilo ni la calidad artesanal.',
+      image: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=1200',
+      link: '/ready-to-wear',
+      category: 'rtw',
+      season: 'Colección 2025',
+      pieces: 35,
+      price: 'Desde $15,000 MXN'
     },
     {
-      title: 'ACCESORIOS',
-      subtitle: 'COMPLEMENTOS DE LUJO',
-      image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=1000',
-      href: '/collections/accesorios'
+      id: 5,
+      title: 'Madrina Celestial',
+      description: 'Diseños especiales para madrinas de boda. Elegancia que complementa sin competir, creando armonía en el día perfecto.',
+      image: 'https://images.unsplash.com/photo-1596783074918-c84cb06531ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=1200',
+      link: '/madrina',
+      category: 'gala',
+      season: 'Colección 2025',
+      pieces: 15,
+      price: 'Desde $35,000 MXN'
     },
     {
-      title: 'JOYERÍA',
-      subtitle: 'PIEZAS ÚNICAS',
-      image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=1000',
-      href: '/collections/joyeria'
-    },
+      id: 6,
+      title: 'XV Años Princesa',
+      description: 'Vestidos de quinceañera que marcan el paso a la feminidad. Diseños que capturan la magia de este momento único.',
+      image: 'https://images.unsplash.com/photo-1582639592587-6d82b83fcef8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=1200',
+      link: '/quince',
+      category: 'gala',
+      season: 'Colección 2025',
+      pieces: 20,
+      price: 'Desde $25,000 MXN'
+    }
+  ];
+
+  const filteredCollections = selectedCategory === 'all' 
+    ? collections 
+    : collections.filter(collection => collection.category === selectedCategory);
+
+  const stats = [
+    { icon: Star, label: 'Colecciones', value: '6' },
+    { icon: User, label: 'Diseños Únicos', value: '124+' },
+    { icon: Calendar, label: 'Años de Experiencia', value: '35+' },
   ];
 
   return (
-    <div className="pt-20">
+    <div className="pt-20 min-h-screen bg-white">
       {/* Hero Section */}
-      <HeroSection
-        title="COLECCIONES"
-        description="Descubre nuestras colecciones exclusivas de alta costura, donde cada pieza cuenta una historia única de elegancia y sofisticación"
-        backgroundImage="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080"
-      />
-
-      {/* Collections Grid */}
-      <section className="py-20 bg-white">
-        <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative h-[60vh] overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080"
+            alt="Colecciones Alberto Rodríguez"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/40"></div>
+        </div>
+        
+        <div className="relative z-10 h-full flex items-center justify-center text-center">
           <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
           >
-            <h2 className="font-serif text-4xl md:text-5xl font-light mb-4 tracking-wide">
-              NUESTRAS COLECCIONES
-            </h2>
-            <div className="w-24 h-px bg-luxury-gold mx-auto mb-6"></div>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Cada colección representa nuestra pasión por la excelencia, combinando técnicas tradicionales 
-              de alta costura con diseños contemporáneos que trascienden el tiempo.
+            <h1 className="text-5xl md:text-7xl font-light text-white mb-6 tracking-luxury" style={{ fontFamily: 'var(--font-logo)' }}>
+              COLECCIONES
+            </h1>
+            <motion.div 
+              className="w-32 h-px bg-luxury-gold mx-auto mb-8"
+              initial={{ width: 0 }}
+              animate={{ width: 128 }}
+              transition={{ duration: 1, delay: 0.5 }}
+            />
+            <p className="text-xl text-white/95 max-w-3xl mx-auto leading-relaxed">
+              Cada pieza es una obra de arte que refleja la pasión por la perfección<br/>
+              y el detalle que nos caracteriza desde 1986.
             </p>
           </motion.div>
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {collections.map((collection, index) => (
-              <CollectionCard
-                key={collection.title}
-                title={collection.title}
-                subtitle={collection.subtitle}
-                image={collection.image}
-                href={collection.href}
-              />
+      {/* Stats Section */}
+      <section className="py-16 bg-luxury-light">
+        <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {stats.map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                className="text-center"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.2 }}
+              >
+                <div className="w-16 h-16 bg-luxury-gold rounded-full flex items-center justify-center mx-auto mb-4">
+                  <stat.icon className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-3xl font-light text-luxury-black mb-2">{stat.value}</h3>
+                <p className="text-gray-600 tracking-luxury">{stat.label}</p>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Process Section */}
-      <section className="py-20 bg-luxury-light">
+      {/* Filter Categories */}
+      <section className="py-8 bg-white border-b border-gray-100">
         <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-wrap justify-center gap-4">
+            {categories.map((category) => (
+              <motion.button
+                key={category.id}
+                onClick={() => setSelectedCategory(category.id)}
+                className={`px-6 py-3 text-sm font-medium tracking-luxury transition-all duration-300 ${
+                  selectedCategory === category.id
+                    ? 'bg-luxury-gold text-white'
+                    : 'bg-transparent text-luxury-black hover:bg-luxury-light border border-gray-200'
+                }`}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                {category.label}
+              </motion.button>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Collections Grid */}
+      <section className="py-16">
+        <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredCollections.map((collection, index) => (
+              <motion.div
+                key={collection.id}
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                className="group"
+              >
+                <div className="relative overflow-hidden bg-white shadow-lg hover:shadow-2xl transition-all duration-500">
+                  <div className="aspect-[3/4] overflow-hidden">
+                    <img
+                      src={collection.image}
+                      alt={collection.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-500"></div>
+                  </div>
+                  
+                  <div className="p-8">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-xs text-luxury-gold font-medium tracking-wide uppercase">
+                        {collection.season}
+                      </span>
+                      <span className="text-xs text-gray-500">
+                        {collection.pieces} piezas
+                      </span>
+                    </div>
+                    
+                    <h3 className="font-serif text-2xl font-light mb-4 tracking-luxury">
+                      {collection.title}
+                    </h3>
+                    
+                    <p className="text-gray-600 text-sm leading-relaxed mb-6">
+                      {collection.description}
+                    </p>
+                    
+                    <div className="flex items-center justify-between">
+                      <span className="text-luxury-black font-medium">
+                        {collection.price}
+                      </span>
+                      <motion.button
+                        className="flex items-center text-luxury-gold hover:text-luxury-black transition-colors duration-300"
+                        whileHover={{ x: 5 }}
+                      >
+                        <span className="text-sm font-medium mr-2">VER MÁS</span>
+                        <ChevronRight className="w-4 h-4" />
+                      </motion.button>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-luxury-black text-white">
+        <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="font-serif text-4xl md:text-5xl font-light mb-4 tracking-wide">
-              NUESTRO PROCESO
+            <h2 className="font-serif text-4xl md:text-5xl font-light mb-6 tracking-luxury">
+              ¿Te Imaginas Tu Vestido Ideal?
             </h2>
-            <div className="w-24 h-px bg-luxury-gold mx-auto"></div>
+            <p className="text-xl text-white/90 mb-12 max-w-2xl mx-auto">
+              Agenda una cita personalizada y convierte tu visión en realidad
+              con nuestro proceso de diseño exclusivo.
+            </p>
+            
+            <motion.button
+              className="inline-block border-2 border-luxury-gold text-luxury-gold px-12 py-4 text-sm font-medium tracking-luxury hover:bg-luxury-gold hover:text-black transition-all duration-500"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              AGENDAR CITA PRIVADA
+            </motion.button>
           </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <motion.div
-              className="text-center"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              <div className="w-16 h-16 bg-luxury-gold text-white rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-serif">
-                1
-              </div>
-              <h3 className="font-serif text-xl font-medium mb-4 tracking-luxury">CONSULTA</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Conocemos tus gustos, necesidades y la ocasión especial para crear el diseño perfecto.
-              </p>
-            </motion.div>
-
-            <motion.div
-              className="text-center"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <div className="w-16 h-16 bg-luxury-gold text-white rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-serif">
-                2
-              </div>
-              <h3 className="font-serif text-xl font-medium mb-4 tracking-luxury">DISEÑO</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Creamos bocetos únicos y seleccionamos los mejores materiales para tu pieza exclusiva.
-              </p>
-            </motion.div>
-
-            <motion.div
-              className="text-center"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
-              <div className="w-16 h-16 bg-luxury-gold text-white rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-serif">
-                3
-              </div>
-              <h3 className="font-serif text-xl font-medium mb-4 tracking-luxury">CONFECCIÓN</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Nuestros artesanos expertos dan vida a tu diseño con técnicas de alta costura.
-              </p>
-            </motion.div>
-          </div>
         </div>
       </section>
     </div>

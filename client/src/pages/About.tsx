@@ -1,164 +1,182 @@
 import { motion } from 'framer-motion';
-import HeroSection from '@/components/UI/HeroSection';
+import { Award, Heart, Users, Clock, Sparkles, MapPin } from 'lucide-react';
 
 const About = () => {
   const milestones = [
     {
       year: '1986',
-      title: 'FUNDACIÓN',
-      description: 'Alberto Rodríguez establece su primera casa de modas en Guadalajara'
+      title: 'Fundación',
+      description: 'Alberto Rodríguez inicia su trayectoria en la alta costura en Guadalajara, Jalisco.'
     },
     {
       year: '1995',
-      title: 'RECONOCIMIENTO',
-      description: 'Primera participación en Mercedes-Benz Fashion Week México'
+      title: 'Reconocimiento Nacional',
+      description: 'Primer desfile en Fashion Week Mexico City, consolidando su presencia nacional.'
     },
     {
-      year: '2010',
-      title: 'EXPANSIÓN',
-      description: 'Colaboración con Swarovski Company y presencia internacional'
+      year: '2005',
+      title: 'Expansión Internacional',
+      description: 'Participación en Miami Fashion Week y primeras clientas internacionales.'
+    },
+    {
+      year: '2015',
+      title: 'Atelier Flagship',
+      description: 'Apertura del atelier insignia en Av. Vallarta, el corazón de la marca.'
     },
     {
       year: '2025',
-      title: 'LEGADO',
-      description: 'Más de 35 años creando momentos únicos en alta costura'
+      title: 'Legado Continuo',
+      description: 'Celebrando 39 años de excelencia en alta costura y vestidos de novia.'
     }
   ];
 
+  const values = [
+    {
+      icon: Heart,
+      title: 'Pasión',
+      description: 'Cada puntada refleja nuestra pasión por crear piezas únicas que marquen momentos especiales.'
+    },
+    {
+      icon: Award,
+      title: 'Excelencia',
+      description: 'Compromiso inquebrantable con la calidad y perfección en cada detalle de nuestras creaciones.'
+    },
+    {
+      icon: Users,
+      title: 'Personalización',
+      description: 'Cada clienta es única, por eso cada diseño se adapta perfectamente a su personalidad y figura.'
+    },
+    {
+      icon: Sparkles,
+      title: 'Innovación',
+      description: 'Fusionamos técnicas tradicionales con tendencias contemporáneas para crear diseños atemporales.'
+    }
+  ];
+
+  const stats = [
+    { number: '2,500+', label: 'Novias Vestidas' },
+    { number: '35+', label: 'Años de Experiencia' },
+    { number: '15', label: 'Artesanos Especializados' },
+    { number: '100%', label: 'Hecho a Medida' }
+  ];
+
   return (
-    <div className="pt-20">
+    <div className="pt-20 min-h-screen bg-white">
       {/* Hero Section */}
-      <HeroSection
-        title="MUNDO ALBERTO RODRÍGUEZ"
-        description="Una historia de pasión, dedicación y excelencia en el mundo de la alta costura mexicana"
-        backgroundImage="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080"
-      />
+      <section className="relative h-[70vh] overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080"
+            alt="Alberto Rodríguez Atelier"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/50"></div>
+        </div>
+        
+        <div className="relative z-10 h-full flex items-center justify-center text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+          >
+            <h1 className="text-5xl md:text-7xl font-light text-white mb-6 tracking-luxury" style={{ fontFamily: 'var(--font-logo)' }}>
+              ALBERTO RODRÍGUEZ
+            </h1>
+            <motion.div 
+              className="w-32 h-px bg-luxury-gold mx-auto mb-8"
+              initial={{ width: 0 }}
+              animate={{ width: 128 }}
+              transition={{ duration: 1, delay: 0.5 }}
+            />
+            <p className="text-xl text-white/95 max-w-3xl mx-auto leading-relaxed">
+              Más de tres décadas dedicadas a crear momentos únicos<br/>
+              a través del arte de la alta costura
+            </p>
+          </motion.div>
+        </div>
+      </section>
 
       {/* Biography Section */}
       <section className="py-20 bg-white">
         <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
-                alt="Alberto Rodríguez"
-                className="w-full h-96 object-cover"
-                loading="lazy"
-              />
+              <h2 className="font-serif text-4xl md:text-5xl font-light mb-8 tracking-luxury">
+                Una Historia de Elegancia
+              </h2>
+              <div className="space-y-6 text-gray-700 leading-relaxed">
+                <p className="text-lg">
+                  Desde 1986, Alberto Rodríguez ha sido sinónimo de elegancia y sofisticación 
+                  en el mundo de la alta costura mexicana. Su pasión por crear vestidos únicos 
+                  nació de una profunda admiración por la belleza femenina y el deseo de hacer 
+                  realidad los sueños de cada mujer.
+                </p>
+                <p>
+                  Formado en las mejores escuelas de diseño y con experiencia en casas de alta 
+                  costura europeas, Alberto regresó a México con una visión clara: crear piezas 
+                  que fusionaran la elegancia internacional con la calidez y tradición mexicana.
+                </p>
+                <p>
+                  Cada vestido que sale de nuestro atelier es el resultado de un proceso artesanal 
+                  meticuloso, donde la calidad de los materiales, la precisión en el corte y la 
+                  atención al detalle son fundamentales para lograr la perfección que nos caracteriza.
+                </p>
+              </div>
+              
+              <div className="mt-12 flex items-center space-x-4">
+                <div className="flex items-center space-x-2 text-luxury-gold">
+                  <MapPin className="w-5 h-5" />
+                  <span className="text-sm font-medium">Guadalajara, Jalisco</span>
+                </div>
+                <div className="flex items-center space-x-2 text-luxury-gold">
+                  <Clock className="w-5 h-5" />
+                  <span className="text-sm font-medium">Desde 1986</span>
+                </div>
+              </div>
             </motion.div>
 
             <motion.div
               initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
+              className="relative"
             >
-              <h2 className="font-serif text-4xl md:text-5xl font-light mb-8 tracking-wide">
-                EL DISEÑADOR
-              </h2>
-              <div className="w-24 h-px bg-luxury-gold mb-8"></div>
-              
-              <div className="space-y-6 text-lg leading-relaxed text-gray-600">
-                <p>
-                  Alberto Rodríguez es un reconocido diseñador mexicano de alta costura, 
-                  especializado en vestidos de novia y de gala. Su trayectoria comenzó en 1986, 
-                  cuando fundó su casa de modas en Guadalajara, Jalisco.
-                </p>
-                <p>
-                  Con más de 35 años de experiencia, Alberto ha desarrollado un estilo único 
-                  que combina la elegancia clásica con toques contemporáneos. Su trabajo ha 
-                  sido reconocido tanto nacional como internacionalmente.
-                </p>
-                <p>
-                  Inspirado por los grandes maestros de la moda como Chanel, Dior y Oscar de la Renta, 
-                  Alberto ha creado un lenguaje propio que define la alta costura mexicana contemporánea.
-                </p>
+              <div className="aspect-[4/5] overflow-hidden shadow-2xl">
+                <img
+                  src="https://images.unsplash.com/photo-1583846288791-3a6e0ac36b46?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=1000"
+                  alt="Alberto Rodríguez Designer"
+                  className="w-full h-full object-cover"
+                />
               </div>
+              <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-luxury-gold/10 rounded-full"></div>
+              <div className="absolute -top-6 -right-6 w-24 h-24 bg-luxury-light rounded-full"></div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Philosophy Section */}
-      <section className="py-20 bg-luxury-black text-white">
-        <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="font-serif text-4xl md:text-5xl font-light mb-8 tracking-wide">
-              FILOSOFÍA
-            </h2>
-            <div className="w-24 h-px bg-luxury-gold mx-auto mb-12"></div>
-            
-            <blockquote className="text-2xl md:text-3xl font-light italic max-w-4xl mx-auto mb-8">
-              "En la moda hay que evolucionar más allá de las tendencias y estilos. 
-              Cada pieza debe contar una historia única y reflejar la personalidad de quien la porta."
-            </blockquote>
-            
-            <cite className="text-luxury-gold text-lg tracking-luxury">
-              — Alberto Rodríguez
-            </cite>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Timeline Section */}
-      <section className="py-20 bg-luxury-light">
+      {/* Stats Section */}
+      <section className="py-16 bg-luxury-light">
         <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="font-serif text-4xl md:text-5xl font-light mb-4 tracking-wide">
-              NUESTRA HISTORIA
-            </h2>
-            <div className="w-24 h-px bg-luxury-gold mx-auto"></div>
-          </motion.div>
-
-          <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-1/2 transform -translate-x-0.5 w-px h-full bg-luxury-gold"></div>
-            
-            {milestones.map((milestone, index) => (
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {stats.map((stat, index) => (
               <motion.div
-                key={milestone.year}
-                className={`relative flex items-center mb-12 ${
-                  index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
-                }`}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
+                key={stat.label}
+                className="text-center"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
               >
-                <div className={`w-full lg:w-1/2 ${
-                  index % 2 === 0 ? 'lg:pr-8 lg:text-right' : 'lg:pl-8 lg:text-left'
-                }`}>
-                  <div className="bg-white p-8 rounded-lg shadow-sm">
-                    <div className="text-luxury-gold font-serif text-2xl mb-2">
-                      {milestone.year}
-                    </div>
-                    <h3 className="font-medium text-xl mb-3 tracking-luxury">
-                      {milestone.title}
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed">
-                      {milestone.description}
-                    </p>
-                  </div>
-                </div>
-                
-                {/* Timeline dot */}
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-luxury-gold rounded-full border-4 border-white"></div>
+                <h3 className="text-3xl md:text-4xl font-light text-luxury-black mb-2">
+                  {stat.number}
+                </h3>
+                <p className="text-gray-600 text-sm tracking-luxury uppercase">
+                  {stat.label}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -170,64 +188,177 @@ const About = () => {
         <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="font-serif text-4xl md:text-5xl font-light mb-4 tracking-wide">
-              NUESTROS VALORES
+            <h2 className="font-serif text-4xl md:text-5xl font-light mb-6 tracking-luxury">
+              Nuestros Valores
             </h2>
-            <div className="w-24 h-px bg-luxury-gold mx-auto"></div>
+            <div className="w-32 h-px bg-luxury-gold mx-auto mb-8" />
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Los principios que guían cada una de nuestras creaciones y definen
+              la experiencia Alberto Rodríguez Couture
+            </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {values.map((value, index) => (
+              <motion.div
+                key={value.title}
+                className="text-center group"
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.2 }}
+              >
+                <div className="w-16 h-16 bg-luxury-gold rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <value.icon className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="font-serif text-2xl font-light mb-4 tracking-luxury">
+                  {value.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {value.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Timeline Section */}
+      <section className="py-20 bg-luxury-black text-white">
+        <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="font-serif text-4xl md:text-5xl font-light mb-6 tracking-luxury">
+              Nuestra Historia
+            </h2>
+            <div className="w-32 h-px bg-luxury-gold mx-auto mb-8" />
+            <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+              Momentos clave que han marcado nuestro camino hacia la excelencia
+              en la alta costura
+            </p>
+          </motion.div>
+
+          <div className="relative">
+            {/* Timeline Line */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-px h-full bg-luxury-gold/30"></div>
+            
+            <div className="space-y-16">
+              {milestones.map((milestone, index) => (
+                <motion.div
+                  key={milestone.year}
+                  className={`relative flex items-center ${
+                    index % 2 === 0 ? 'justify-start' : 'justify-end'
+                  }`}
+                  initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, delay: index * 0.2 }}
+                >
+                  <div className={`w-full max-w-md ${index % 2 === 0 ? 'text-right pr-8' : 'text-left pl-8'}`}>
+                    <div className="bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10">
+                      <h3 className="text-2xl font-light text-luxury-gold mb-2">
+                        {milestone.year}
+                      </h3>
+                      <h4 className="font-serif text-xl mb-3">
+                        {milestone.title}
+                      </h4>
+                      <p className="text-white/80 leading-relaxed">
+                        {milestone.description}
+                      </p>
+                    </div>
+                  </div>
+                  
+                  {/* Timeline Dot */}
+                  <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-luxury-gold rounded-full border-4 border-luxury-black"></div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Atelier Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div
-              className="text-center"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="order-2 lg:order-1"
             >
-              <h3 className="font-serif text-2xl font-medium mb-4 tracking-luxury">
-                EXCELENCIA
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                Cada detalle importa. Desde la selección de materiales hasta los acabados finales, 
-                buscamos la perfección en cada pieza.
-              </p>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="aspect-square overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600"
+                    alt="Atelier Interior"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="aspect-square overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600"
+                    alt="Design Process"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="aspect-square overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1558618047-2dd793e17ee0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600"
+                    alt="Fabric Selection"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="aspect-square overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1558618047-3e31ca0dd2f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600"
+                    alt="Final Details"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+              </div>
             </motion.div>
 
             <motion.div
-              className="text-center"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="order-1 lg:order-2"
             >
-              <h3 className="font-serif text-2xl font-medium mb-4 tracking-luxury">
-                EXCLUSIVIDAD
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                Creamos piezas únicas que reflejan la personalidad y estilo individual 
-                de cada cliente.
-              </p>
-            </motion.div>
-
-            <motion.div
-              className="text-center"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
-              <h3 className="font-serif text-2xl font-medium mb-4 tracking-luxury">
-                TRADICIÓN
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                Preservamos las técnicas artesanales de la alta costura, 
-                transmitiendo nuestro conocimiento a las nuevas generaciones.
-              </p>
+              <h2 className="font-serif text-4xl md:text-5xl font-light mb-8 tracking-luxury">
+                Nuestro Atelier
+              </h2>
+              <div className="space-y-6 text-gray-700 leading-relaxed">
+                <p className="text-lg">
+                  En el corazón de Guadalajara, nuestro atelier es un espacio donde la magia 
+                  de la alta costura cobra vida. Cada rincón está diseñado para inspirar 
+                  creatividad y facilitar el proceso artesanal que caracteriza nuestro trabajo.
+                </p>
+                <p>
+                  Contamos con las mejores telas importadas de Europa, herramientas de precisión 
+                  y un equipo de artesanos especializados que dominan técnicas tradicionales 
+                  transmitidas de generación en generación.
+                </p>
+                <p>
+                  La experiencia en nuestro atelier va más allá de una simple prueba de vestido. 
+                  Es un momento íntimo donde cada clienta descubre cómo sus sueños toman forma 
+                  a través de nuestras manos expertas.
+                </p>
+              </div>
+              
+              <motion.button
+                className="mt-8 inline-block border-2 border-luxury-gold text-luxury-gold px-8 py-3 text-sm font-medium tracking-luxury hover:bg-luxury-gold hover:text-white transition-all duration-500"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                VISITAR NUESTRO ATELIER
+              </motion.button>
             </motion.div>
           </div>
         </div>

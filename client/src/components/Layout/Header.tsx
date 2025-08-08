@@ -129,7 +129,7 @@ const Header = () => {
                   whileHover={{ scale: 1.02 }}
                   transition={{ type: "spring", stiffness: 400 }}
                 >
-                  <span className="font-serif text-2xl font-light tracking-luxury text-luxury-black">
+                  <span className="text-2xl font-light tracking-luxury text-luxury-black" style={{ fontFamily: 'var(--font-logo)' }}>
                     ALBERTO RODRÍGUEZ
                   </span>
                 </motion.div>
@@ -214,7 +214,7 @@ const Header = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
                 >
-                  <span className="font-serif text-xl font-light tracking-luxury text-luxury-black">
+                  <span className="text-xl font-light tracking-luxury text-luxury-black" style={{ fontFamily: 'var(--font-logo)' }}>
                     ALBERTO RODRÍGUEZ
                   </span>
                   <div className="w-16 h-px bg-luxury-gold mt-2" />
