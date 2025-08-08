@@ -3,15 +3,10 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
 
-# Build outputs
+# Production builds
 dist/
-dist-ssr/
-client/dist/
 build/
-out/
 
 # Environment variables
 .env
@@ -20,84 +15,74 @@ out/
 .env.test.local
 .env.production.local
 
+# Database
+*.db
+*.sqlite
+
+# Logs
+logs
+*.log
+
 # Runtime data
 pids
 *.pid
 *.seed
 *.pid.lock
 
-# Logs
-logs/
-*.log
-
 # Coverage directory used by tools like istanbul
 coverage/
-nyc_output/
 
-# TypeScript cache
-*.tsbuildinfo
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
 
-# Optional npm cache directory
-.npm
-
-# Optional eslint cache
-.eslintcache
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
 
 # Temporary folders
 tmp/
 temp/
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea/
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-
-# OS generated files
-Thumbs.db
-ehthumbs.db
-Desktop.ini
-
 # Netlify
 .netlify/
 
-# Local Netlify folder
-.netlify
+# Cache
+.cache/
+.parcel-cache/
 
-# Database
-*.db
-*.sqlite
-*.sqlite3
+# TypeScript
+*.tsbuildinfo
 
-# Drizzle
-drizzle/
+# Optional npm cache directory
+.npm
 
-# Production files
-*.tar.gz
-*.zip
+# Optional REPL history
+.node_repl_history
 
-# Local development
-.local
-*.local
+# Output of 'npm pack'
+*.tgz
 
-# Backup files
-*.backup
-*.bak
+# Yarn Integrity file
+.yarn-integrity
 
-# Mac
-.DS_Store?
-._*
+# dotenv environment variables file
+.env.test
 
-# Windows
-Thumbs.db
-ehthumbs.db
-Desktop.ini
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test
 
-# Server files
-server/public
-vite.config.ts.*
+# yarn v2
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
