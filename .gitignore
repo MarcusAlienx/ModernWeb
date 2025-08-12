@@ -33,7 +33,12 @@ pids
 coverage/
 
 # IDE files
-.vscode/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/tasks.json
+!.vscode/snippets.json
 .idea/
 *.swp
 *.swo
