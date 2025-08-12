@@ -14,10 +14,14 @@ Preferred communication style: Simple, everyday language.
 - **Video Hero Component**: Created immersive video hero section with custom controls and elegant overlays
 - **Visual Effects**: Added sophisticated animations, scroll effects, and micro-interactions throughout
 - **Smart Navigation**: Fixed collection links to navigate directly to specific sections (#novias, #gala, #coctel, #rtw)
+- **Navigation Scroll Fix**: Implemented automatic scroll to top on route changes with useEffect hook
+- **Logo Centered**: Removed search icon and perfectly centered logo with proper spacing
 - **Gala Collection**: Added dedicated GALA collection with proper routing and image integration
 - **Footer Links**: Corrected empresa section to use proper /about and /contact routes
 - **Comprehensive Documentation**: Complete README.md with deployment instructions, CMS integration guide, and project architecture
 - **Netlify Ready**: Full deployment configuration with manifest.json, _redirects, and optimized build settings
+- **VSCode Setup**: Complete local development environment with debug configuration, extensions, and snippets
+- **Local Development**: Automated setup script and comprehensive VSCode integration
 - **GitHub Preparation**: Project structured for version control with proper .gitignore and documentation
 
 ## System Architecture
