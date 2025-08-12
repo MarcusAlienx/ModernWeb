@@ -32,6 +32,12 @@ const Header = () => {
     setIsMenuOpen(false);
   };
 
+  const handleNavClick = () => {
+    closeMenu();
+    // Scroll to top when navigating to a new page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <>
       <motion.header 
@@ -101,6 +107,11 @@ const Header = () => {
                           ? 'text-luxury-gold'
                           : 'text-luxury-black hover:text-luxury-gold'
                       } transition-colors duration-300`}
+                      onClick={() => {
+                        if (!item.href.includes('#')) {
+                          window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }
+                      }}
                       whileHover={{ y: -2 }}
                     >
                       {item.label}
@@ -126,6 +137,7 @@ const Header = () => {
               <Link href="/">
                 <motion.div 
                   className="flex items-center cursor-pointer"
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                   whileHover={{ scale: 1.02 }}
                   transition={{ type: "spring", stiffness: 400 }}
                 >
@@ -152,6 +164,11 @@ const Header = () => {
                           ? 'text-luxury-gold'
                           : 'text-luxury-black hover:text-luxury-gold'
                       } transition-colors duration-300`}
+                      onClick={() => {
+                        if (!item.href.includes('#')) {
+                          window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }
+                      }}
                       whileHover={{ y: -2 }}
                     >
                       {item.label}
@@ -236,7 +253,7 @@ const Header = () => {
                               ? 'text-luxury-gold'
                               : 'text-luxury-black hover:text-luxury-gold'
                           } transition-colors duration-300`}
-                          onClick={closeMenu}
+                          onClick={handleNavClick}
                           whileHover={{ x: 10 }}
                         >
                           {item.label}
@@ -274,6 +291,10 @@ const Header = () => {
                             className="text-sm text-gray-600 hover:text-luxury-gold cursor-pointer py-1 transition-colors duration-300"
                             onClick={() => {
                               closeMenu();
+                              // Solo scroll automático para enlaces de colecciones (que tienen #)
+                              setTimeout(() => {
+                                window.scrollTo({ top: 300, behavior: 'smooth' });
+                              }, 100);
                             }}
                             whileHover={{ x: 5 }}
                           >
