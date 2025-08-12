@@ -1,0 +1,34 @@
+#!/bin/sh
+# Pre-commit hook para Alberto Rodríguez Couture
+# Verifica TypeScript y build antes de cada commit
+
+echo "🔍 Verificando TypeScript..."
+
+# Verificar tipos TypeScript
+if ! npm run check; then
+    echo "❌ Error de TypeScript detectado. Fix los errores antes de commit."
+    exit 1
+fi
+
+echo "✅ TypeScript OK"
+
+# Verificar que el build funcione
+echo "🔨 Verificando build..."
+if ! npm run build > /dev/null 2>&1; then
+    echo "❌ Error de build detectado. Fix los errores antes de commit."
+    exit 1
+fi
+
+echo "✅ Build OK"
+
+# Verificar archivos .env no se incluyan
+if git diff --cached --name-only | grep -E "^\.env$|^\.env\.local$|^\.env\.production$"; then
+    echo "❌ Archivos .env detectados en staging. Remove antes de commit:"
+    git diff --cached --name-only | grep -E "^\.env"
+    exit 1
+fi
+
+echo "✅ Seguridad OK"
+echo "🚀 Commit aprobado!"
+
+exit 0
