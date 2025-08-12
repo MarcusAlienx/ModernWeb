@@ -55,7 +55,7 @@ const Collections = () => {
       id: 2,
       title: 'Gala Imperial',
       description: 'Elegancia y sofisticación para eventos especiales. Diseños que capturan la esencia de la realeza con un toque moderno y mexicano.',
-      image: 'https://images.unsplash.com/photo-1566479179817-02b2e5b2c7c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=1200',
+      image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=1200',
       link: '/gala',
       category: 'gala',
       season: 'Colección 2025',

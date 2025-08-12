@@ -9,19 +9,19 @@ const Home = () => {
     {
       title: 'NOVIAS',
       subtitle: 'COLECCIÓN ETERNA',
-      image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=1000',
+      image: 'https://images.unsplash.com/photo-1594736797933-d0c02e8ec2d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=1000',
       href: '/collections#novias'
     },
     {
       title: 'GALA',
       subtitle: 'ELEGANCIA IMPERIAL',
-      image: 'https://images.unsplash.com/photo-1566479179817-02b2e5b2c7c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=1000',
+      image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=1000',
       href: '/collections#gala'
     },
     {
       title: 'CÓCTEL',
       subtitle: 'SOFISTICACIÓN DORADA',
-      image: 'https://images.unsplash.com/photo-1539008835657-9e8e9680c956?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=1000',
+      image: 'https://images.unsplash.com/photo-1502635385003-ee1e6a1a742d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=1000',
       href: '/collections#coctel'
     },
     {
@@ -36,17 +36,17 @@ const Home = () => {
     {
       title: 'JACQUELINE BRACAMONTES',
       subtitle: 'PREMIOS TVyNOVELAS 2024',
-      image: 'https://images.unsplash.com/photo-1566479179817-0b00b3c6f7c9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=800',
+      image: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=800',
     },
     {
       title: 'GALA BENÉFICA',
       subtitle: 'CRUZ ROJA GUADALAJARA',
-      image: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=800',
+      image: 'https://images.unsplash.com/photo-1594736797933-d0c02e8ec2d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=800',
     },
     {
       title: 'FASHION WEEK',
       subtitle: 'MERCEDES-BENZ MÉXICO',
-      image: 'https://images.unsplash.com/photo-1539008835657-9e8e9680c956?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=800',
+      image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=800',
     },
     {
       title: 'BODA REAL',

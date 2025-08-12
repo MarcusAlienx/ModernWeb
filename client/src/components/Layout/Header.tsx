@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'wouter';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Search, Instagram, Facebook, Phone } from 'lucide-react';
+import { Menu, X, Instagram, Facebook, Phone } from 'lucide-react';
 
 const Header = () => {
   const [location] = useLocation();
@@ -16,6 +16,11 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Scroll to top whenever route changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [location]);
 
   const navigationItems = [
     { href: '/', label: 'INICIO' },
@@ -34,8 +39,6 @@ const Header = () => {
 
   const handleNavClick = () => {
     closeMenu();
-    // Scroll to top when navigating to a new page
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -107,11 +110,6 @@ const Header = () => {
                           ? 'text-luxury-gold'
                           : 'text-luxury-black hover:text-luxury-gold'
                       } transition-colors duration-300`}
-                      onClick={() => {
-                        if (!item.href.includes('#')) {
-                          window.scrollTo({ top: 0, behavior: 'smooth' });
-                        }
-                      }}
                       whileHover={{ y: -2 }}
                     >
                       {item.label}
@@ -129,7 +127,7 @@ const Header = () => {
 
             {/* Center Logo */}
             <motion.div 
-              className="flex-1 flex justify-center lg:flex-none lg:flex-1 lg:flex lg:justify-center"
+              className="flex-1 flex justify-center"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2, duration: 0.8 }}
@@ -137,7 +135,6 @@ const Header = () => {
               <Link href="/">
                 <motion.div 
                   className="flex items-center cursor-pointer"
-                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                   whileHover={{ scale: 1.02 }}
                   transition={{ type: "spring", stiffness: 400 }}
                 >
@@ -164,11 +161,6 @@ const Header = () => {
                           ? 'text-luxury-gold'
                           : 'text-luxury-black hover:text-luxury-gold'
                       } transition-colors duration-300`}
-                      onClick={() => {
-                        if (!item.href.includes('#')) {
-                          window.scrollTo({ top: 0, behavior: 'smooth' });
-                        }
-                      }}
                       whileHover={{ y: -2 }}
                     >
                       {item.label}
@@ -184,14 +176,8 @@ const Header = () => {
               ))}
             </div>
 
-            {/* Search Icon */}
-            <motion.button 
-              className="hidden lg:block p-2 hover:bg-gray-50/80 rounded-full transition-all duration-300"
-              whileHover={{ scale: 1.05, rotate: 90 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Search className="w-5 h-5 text-luxury-black" />
-            </motion.button>
+            {/* Right spacer for centering */}
+            <div className="hidden lg:block w-20"></div>
           </div>
         </nav>
       </motion.header>
@@ -289,13 +275,7 @@ const Header = () => {
                         <a href={category.href}>
                           <motion.div
                             className="text-sm text-gray-600 hover:text-luxury-gold cursor-pointer py-1 transition-colors duration-300"
-                            onClick={() => {
-                              closeMenu();
-                              // Solo scroll automático para enlaces de colecciones (que tienen #)
-                              setTimeout(() => {
-                                window.scrollTo({ top: 300, behavior: 'smooth' });
-                              }, 100);
-                            }}
+                            onClick={closeMenu}
                             whileHover={{ x: 5 }}
                           >
                             {category.label}
