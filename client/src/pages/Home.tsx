@@ -218,7 +218,7 @@ const Home = () => {
             >
               <img
                 src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
-                alt="Luxury fashion atelier workspace"
+                alt="Luxury fashion boutique interior"
                 className="w-full h-64 object-cover"
                 loading="lazy"
               />

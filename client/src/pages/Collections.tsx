@@ -1,25 +1,26 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { ChevronRight, Star, Calendar, User } from 'lucide-react';
+import { useCollections } from '../hooks/useCollections';
+import { Link } from "wouter";
 
 const Collections = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const { data: collections, isLoading, error } = useCollections();
 
   useEffect(() => {
-    // Detectar fragmento de URL para navegar a categoría específica
     const hash = window.location.hash.replace('#', '');
-    if (hash && ['novias', 'gala', 'coctel', 'rtw'].includes(hash)) {
+    const validCategories = ['novia', 'xv', 'noche', 'primavera', 'cortos', 'alquiler'];
+    if (hash && validCategories.includes(hash)) {
       setSelectedCategory(hash);
-      // Scroll suave al contenido después de filtrar
       setTimeout(() => {
         window.scrollTo({ top: 300, behavior: 'smooth' });
       }, 200);
     }
 
-    // Listener para cambios en el hash
     const handleHashChange = () => {
       const newHash = window.location.hash.replace('#', '');
-      if (newHash && ['novias', 'gala', 'coctel', 'rtw'].includes(newHash)) {
+      if (newHash && validCategories.includes(newHash)) {
         setSelectedCategory(newHash);
         setTimeout(() => {
           window.scrollTo({ top: 300, behavior: 'smooth' });
@@ -32,85 +33,18 @@ const Collections = () => {
   }, []);
 
   const categories = [
-    { id: 'all', label: 'TODAS LAS COLECCIONES' },
-    { id: 'novias', label: 'NOVIAS' },
-    { id: 'gala', label: 'GALA' },
-    { id: 'coctel', label: 'CÓCTEL' },
-    { id: 'rtw', label: 'READY-TO-WEAR' }
+    { id: 'all', label: 'TODAS' },
+    { id: 'novia', label: 'NOVIA' },
+    { id: 'xv', label: 'XV' },
+    { id: 'noche', label: 'NOCHE' },
+    { id: 'primavera', label: 'PRIMAVERA' },
+    { id: 'cortos', label: 'CORTOS' },
+    { id: 'alquiler', label: 'ALQUILER' }
   ];
 
-  const collections = [
-    {
-      id: 1,
-      title: 'Novias Eternas',
-      description: 'Vestidos de novia únicos diseñados para el día más importante. Cada pieza es creada a medida con las mejores telas y técnicas de alta costura.',
-      image: 'https://images.unsplash.com/photo-1594736797933-d0c02e8ec2d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=1200',
-      link: '/novias',
-      category: 'novias',
-      season: 'Colección 2025',
-      pieces: 12,
-      price: 'Desde $85,000 MXN'
-    },
-    {
-      id: 2,
-      title: 'Gala Imperial',
-      description: 'Elegancia y sofisticación para eventos especiales. Diseños que capturan la esencia de la realeza con un toque moderno y mexicano.',
-      image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=1200',
-      link: '/gala',
-      category: 'gala',
-      season: 'Colección 2025',
-      pieces: 18,
-      price: 'Desde $45,000 MXN'
-    },
-    {
-      id: 3,
-      title: 'Cóctel Dorado',
-      description: 'Diseños sofisticados para ocasiones semi-formales. La perfecta combinación entre elegancia y versatilidad para la mujer moderna.',
-      image: 'https://images.unsplash.com/photo-1539008835657-9e8e9680c956?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=1200',
-      link: '/coctel',
-      category: 'coctel',
-      season: 'Colección 2025',
-      pieces: 24,
-      price: 'Desde $28,000 MXN'
-    },
-    {
-      id: 4,
-      title: 'Ready-to-Wear Signature',
-      description: 'Piezas listas para usar con el sello de calidad AR. Elegancia cotidiana sin comprometer el estilo ni la calidad artesanal.',
-      image: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=1200',
-      link: '/ready-to-wear',
-      category: 'rtw',
-      season: 'Colección 2025',
-      pieces: 35,
-      price: 'Desde $15,000 MXN'
-    },
-    {
-      id: 5,
-      title: 'Madrina Celestial',
-      description: 'Diseños especiales para madrinas de boda. Elegancia que complementa sin competir, creando armonía en el día perfecto.',
-      image: 'https://images.unsplash.com/photo-1596783074918-c84cb06531ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=1200',
-      link: '/madrina',
-      category: 'gala',
-      season: 'Colección 2025',
-      pieces: 15,
-      price: 'Desde $35,000 MXN'
-    },
-    {
-      id: 6,
-      title: 'XV Años Princesa',
-      description: 'Vestidos de quinceañera que marcan el paso a la feminidad. Diseños que capturan la magia de este momento único.',
-      image: 'https://images.unsplash.com/photo-1582639592587-6d82b83fcef8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=1200',
-      link: '/quince',
-      category: 'gala',
-      season: 'Colección 2025',
-      pieces: 20,
-      price: 'Desde $25,000 MXN'
-    }
-  ];
-
-  const filteredCollections = selectedCategory === 'all' 
-    ? collections 
-    : collections.filter(collection => collection.category === selectedCategory);
+  const filteredCollections = selectedCategory === 'all'
+    ? collections
+    : collections?.filter(collection => collection.slug === selectedCategory);
 
   const stats = [
     { icon: Star, label: 'Colecciones', value: '6' },
@@ -201,16 +135,20 @@ const Collections = () => {
       </section>
 
       {/* Individual Collection Sections */}
-      <section id="novias" className="py-2"></section>
-      <section id="gala" className="py-2"></section>
-      <section id="coctel" className="py-2"></section>
-      <section id="rtw" className="py-2"></section>
+      <section id="novia" className="py-2"></section>
+      <section id="xv" className="py-2"></section>
+      <section id="noche" className="py-2"></section>
+      <section id="primavera" className="py-2"></section>
+      <section id="cortos" className="py-2"></section>
+      <section id="alquiler" className="py-2"></section>
 
       {/* Collections Grid */}
       <section id="collections-grid" className="py-16">
         <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+          {isLoading && <div className="text-center w-full col-span-full">Cargando colecciones...</div>}
+          {error && <div className="text-center text-red-500 w-full col-span-full">Error al cargar las colecciones: {error.message}</div>}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredCollections.map((collection, index) => (
+            {filteredCollections?.map((collection, index) => (
               <motion.div
                 key={collection.id}
                 initial={{ opacity: 0, y: 50 }}
@@ -221,14 +159,9 @@ const Collections = () => {
                 <div className="relative overflow-hidden bg-white shadow-lg hover:shadow-2xl transition-all duration-500">
                   <div className="aspect-[3/4] overflow-hidden">
                     <img
-                      src={collection.image}
+                      src={collection.images?.[0] ?? 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=1200'}
                       alt={collection.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                      onError={(e) => {
-                        console.error('Collection image failed to load:', collection.image);
-                        const target = e.target as HTMLImageElement;
-                        target.src = 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=1200';
-                      }}
                     />
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-500"></div>
                   </div>
@@ -250,15 +183,17 @@ const Collections = () => {
                     
                     <div className="flex items-center justify-between">
                       <span className="text-luxury-black font-medium">
-                        {collection.price}
+                        {/* Price removed */}
                       </span>
-                      <motion.button
-                        className="flex items-center text-luxury-gold hover:text-luxury-black transition-colors duration-300"
-                        whileHover={{ x: 5 }}
-                      >
-                        <span className="text-sm font-medium mr-2">VER MÁS</span>
-                        <ChevronRight className="w-4 h-4" />
-                      </motion.button>
+                      <Link href={`/collections/${collection.slug}`}>
+                        <motion.a
+                          className="flex items-center text-luxury-gold hover:text-luxury-black transition-colors duration-300 cursor-pointer"
+                          whileHover={{ x: 5 }}
+                        >
+                          <span className="text-sm font-medium mr-2">VER MÁS</span>
+                          <ChevronRight className="w-4 h-4" />
+                        </motion.a>
+                      </Link>
                     </div>
                   </div>
                 </div>

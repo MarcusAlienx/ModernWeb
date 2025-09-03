@@ -1,7 +1,10 @@
 import { Link } from 'wouter';
 import { Instagram, Facebook, Twitter } from 'lucide-react';
+import { useCollections } from '@/hooks/useCollections';
 
 const Footer = () => {
+  const { data: collections } = useCollections();
+
   return (
     <footer className="bg-white border-t border-gray-100 py-16">
       <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -42,34 +45,15 @@ const Footer = () => {
           <div>
             <h4 className="font-medium text-lg mb-4 tracking-luxury">COLECCIONES</h4>
             <ul className="space-y-2">
-              <li>
-                <Link href="/collections#novias">
-                  <span className="text-gray-600 hover:text-luxury-gold transition-colors duration-300 cursor-pointer">
-                    Novias
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/collections#gala">
-                  <span className="text-gray-600 hover:text-luxury-gold transition-colors duration-300 cursor-pointer">
-                    Gala
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/collections#coctel">
-                  <span className="text-gray-600 hover:text-luxury-gold transition-colors duration-300 cursor-pointer">
-                    Cóctel
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/collections#rtw">
-                  <span className="text-gray-600 hover:text-luxury-gold transition-colors duration-300 cursor-pointer">
-                    Ready-to-Wear
-                  </span>
-                </Link>
-              </li>
+              {collections?.map((collection) => (
+                <li key={collection.id}>
+                  <Link href={`/collections#${collection.slug}`}>
+                    <span className="text-gray-600 hover:text-luxury-gold transition-colors duration-300 cursor-pointer">
+                      {collection.title}
+                    </span>
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 

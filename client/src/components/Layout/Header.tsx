@@ -2,11 +2,13 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'wouter';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Instagram, Facebook, Phone } from 'lucide-react';
+import { useCollections } from '@/hooks/useCollections';
 
 const Header = () => {
   const [location] = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { data: collections } = useCollections();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -260,25 +262,20 @@ const Header = () => {
                     COLECCIONES
                   </div>
                   <div className="space-y-3">
-                    {[
-                      { href: '/collections#novias', label: 'NOVIAS' },
-                      { href: '/collections#gala', label: 'GALA' },
-                      { href: '/collections#coctel', label: 'CÓCTEL' },
-                      { href: '/collections#rtw', label: 'READY-TO-WEAR' }
-                    ].map((category, index) => (
+                    {collections?.map((collection, index) => (
                       <motion.div
-                        key={category.href}
+                        key={collection.id}
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.6 + index * 0.1 }}
                       >
-                        <a href={category.href}>
+                        <a href={`/collections#${collection.slug}`}>
                           <motion.div
                             className="text-sm text-gray-600 hover:text-luxury-gold cursor-pointer py-1 transition-colors duration-300"
                             onClick={closeMenu}
                             whileHover={{ x: 5 }}
                           >
-                            {category.label}
+                            {collection.title}
                           </motion.div>
                         </a>
                       </motion.div>

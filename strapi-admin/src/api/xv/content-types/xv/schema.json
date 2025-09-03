@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "xvs",
+  "info": {
+    "singularName": "xv",
+    "pluralName": "xvs",
+    "displayName": "XV"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "xv": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}
